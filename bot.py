@@ -38,6 +38,14 @@ gifs = [
 # Variável global para controle da alternância dos GIFs
 gif_index = 0
 
+# Lista de jogos
+jogos = [
+    "Dragão e Tigre",
+    "Coelho e Touro",
+    "Tigre Sortudo e Tigre",
+    "Cobra e Lobo"
+]
+
 # Função para gerar um horário pagante próximo ao horário atual
 def gerar_horario_pagante_proximo():
     agora = datetime.now()  # Obtém o horário atual
@@ -51,7 +59,11 @@ async def enviar_mensagens():
     global gif_index  # Usar a variável global para controlar o índice do GIF
     while True:
         try:
-            mensagem = random.choice(mensagens) + f"\n📌 Próximo horário pagante: {gerar_horario_pagante_proximo()}"
+            # Seleciona 2 ou 3 jogos aleatórios para a mensagem
+            jogos_selecionados = random.sample(jogos, random.randint(2, 3))
+            jogos_texto = "🔥 Jogos pagantes: " + " | ".join(jogos_selecionados)
+
+            mensagem = random.choice(mensagens) + f"\n📌 Próximo horário pagante: {gerar_horario_pagante_proximo()}\n{jogos_texto}"
             gif_url = gifs[gif_index]
             
             # Envia a mensagem
