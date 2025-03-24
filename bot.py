@@ -2,7 +2,7 @@ import time
 import random
 import asyncio
 from telegram import Bot
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 # Configurações do bot
 TOKEN = "7322530159:AAGp7V6UZ2ICK4478wnaUaTQTf_kmh9swlo"  # Token do BotFather
@@ -46,12 +46,15 @@ jogos = [
     "Cobra"
 ]
 
-# Função para gerar um horário pagante próximo ao horário atual
+# Função para gerar um horário pagante próximo ao horário atual no fuso horário do Brasil (UTC-3)
 def gerar_horario_pagante_proximo():
-    agora = datetime.now()  # Obtém o horário atual
+    agora = datetime.now(timezone.utc)  # Obtém o horário UTC usando timezone-aware datetime
+    # Ajusta para o fuso horário de Brasília (UTC-3)
+    agora_brasil = agora - timedelta(hours=3)
+    
     # Adiciona entre 1 e 10 minutos ao horário atual para gerar o próximo horário pagante
     minutos_aleatorios = random.randint(1, 10)
-    proximo_horario = agora + timedelta(minutes=minutos_aleatorios)
+    proximo_horario = agora_brasil + timedelta(minutes=minutos_aleatorios)
     return proximo_horario.strftime("%H:%M")  # Formata para "hh:mm"
 
 # Função assíncrona para enviar mensagens e GIFs aleatórios
