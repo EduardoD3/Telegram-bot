@@ -3,6 +3,7 @@ import random
 import asyncio
 from telegram import Bot
 from datetime import datetime, timedelta
+import pytz  # Importa pytz para lidar com fusos horários
 
 # Configurações do bot
 TOKEN = "7322530159:AAGp7V6UZ2ICK4478wnaUaTQTf_kmh9swlo"  # Token do BotFather
@@ -46,10 +47,10 @@ jogos = [
     "Cobra"
 ]
 
-# Função para gerar um horário pagante próximo ao horário atual
+# Função para gerar um horário pagante próximo ao horário atual (considerando o fuso horário de São Paulo)
 def gerar_horario_pagante_proximo():
-    agora = datetime.now()  # Obtém o horário atual
-    # Adiciona entre 1 e 10 minutos ao horário atual para gerar o próximo horário pagante
+    brasil_tz = pytz.timezone('America/Sao_Paulo')  # Define o fuso horário de São Paulo
+    agora = datetime.now(brasil_tz)  # Obtém o horário atual em São Paulo
     minutos_aleatorios = random.randint(1, 10)
     proximo_horario = agora + timedelta(minutes=minutos_aleatorios)
     return proximo_horario.strftime("%H:%M")  # Formata para "hh:mm"
@@ -59,33 +60,26 @@ async def enviar_mensagens():
     global gif_index  # Usar a variável global para controlar o índice do GIF
     while True:
         try:
-            # Seleciona 2 ou 3 jogos aleatórios para a mensagem
             jogos_selecionados = random.sample(jogos, random.randint(2, 3))
             jogos_texto = "🔥 *Jogos pagantes:* " + " | ".join(jogos_selecionados)
 
             mensagem = random.choice(mensagens) + f"\n\n*📌 Próximo horário pagante:* {gerar_horario_pagante_proximo()}\n{jogos_texto}"
 
-            # Adiciona o link da casa de apostas no final da mensagem
             link_casa_apostas = "👉 BANCA MOLE: [APOSTE AGORA](elyn777.vip/?id=213803064&currency=BRL&type=2&fbclid=IwY2xjawJOUipleHRuA2FlbQIxMQABHYC6ySMav_DMWdOCHruzO2Uty-0-hmVyfrbUmHW2r39QW3Ok9fedwsGm7Q_aem_-QTixcJx1ZMGCAIdfzoL-Q)"
 
-            # Junta a mensagem principal com o link
             mensagem_com_link = f"{mensagem}\n\n{link_casa_apostas}"
 
             gif_url = gifs[gif_index]
             
-            # Envia a mensagem com o link da casa de apostas
             await bot.send_message(chat_id=CHAT_ID, text=mensagem_com_link, parse_mode="Markdown")
-            # Envia o gif
             await bot.send_animation(chat_id=CHAT_ID, animation=gif_url)
             print(f"✅ Mensagem e gif enviados: {mensagem_com_link}")
 
-            # Alterna o índice do gif para o próximo
             gif_index = (gif_index + 1) % len(gifs)
 
         except Exception as e:
             print(f"❌ Erro ao enviar mensagem ou gif: {e}")
 
-        # Tempo aleatório entre 5 e 15 minutos (300s - 900s)
         tempo_espera = random.randint(300, 900)
         print(f"⏳ Próxima mensagem em {tempo_espera // 60} minutos...")
         await asyncio.sleep(tempo_espera)
