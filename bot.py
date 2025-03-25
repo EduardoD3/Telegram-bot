@@ -31,8 +31,7 @@ mensagens = [
 
 # URLs dos GIFs do tigrinho
 gifs = [
-    "https://files.oaiusercontent.com/file-5ufh1JE1CpjABXiDVyfNno?se=2025-03-24T14%3A39%3A30Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D11c28c8a-848c-40fc-9b96-ed3eb3f9bbc9.webp&sig=rTVwXyqhm2qdRHSU73K7nCEgIoGCMF3eC3qbMu9Y0bQ%3D",  # Gif 1
-    "https://cdn.qwenlm.ai/output/74c24795-1c5e-4ef6-bd6a-1b5de9537b38/t2i/49e2811a-595d-4634-a4f4-0911b4bc5884/ba308609-1e89-4593-9405-3dc1d50bad2b.png?key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXNvdXJjZV91c2VyX2lkIjoiNzRjMjQ3OTUtMWM1ZS00ZWY2LWJkNmEtMWI1ZGU5NTM3YjM4IiwicmVzb3VyY2VfaWQiOiJiYTMwODYwOS0xZTg5LTQ1OTMtOTQwNS0zZGMxZDUwYmFkMmIiLCJyZXNvdXJjZV9jaGF0X2lkIjpudWxsfQ.lEIvTw5RlgmG8rWtd5-U-FKlyIEheCH55TzawTFEgMs"   # Gif 3
+    "blob:https://web.whatsapp.com/1d6e391b-c859-460e-a9c5-97ea79a35495",  # Gif 1
 ]
 
 # Variável global para controle da alternância dos GIFs
@@ -69,7 +68,7 @@ async def enviar_mensagens():
             mensagem = random.choice(mensagens) + f"\n\n*📌 Próximo horário pagante:* {gerar_horario_pagante_proximo()}\n{jogos_texto}"
 
             # Adiciona o link da casa de apostas no final da mensagem
-            link_casa_apostas = "👉 BANCA MOLE: [APOSTE AGORA](elyn777.vip/?id=213803064&currency=BRL&type=2&fbclid=IwY2xjawJOUipleHRuA2FlbQIxMQABHYC6ySMav_DMWdOCHruzO2Uty-0-hmVyfrbUmHW2r39QW3Ok9fedwsGm7Q_aem_-QTixcJx1ZMGCAIdfzoL-Q)"
+            link_casa_apostas = "👉 BANCA MOLE: [APOSTE AGORA](https://www.mikupg777.com.br/register?id=50305252&currency=BRL&type=2)"
 
             # Junta a mensagem principal com o link
             mensagem_com_link = f"{mensagem}\n\n{link_casa_apostas}"
