@@ -29,14 +29,6 @@ mensagens = [
     "🚨 *Banca solta!* 💰💥 A casa tá distribuindo! É agora ou nunca! Se joga e garante o teu!"
 ]
 
-# URLs dos GIFs do tigrinho
-gifs = [
-    "https://i.ibb.co/S42rGbZF/Whats-App-Image-2025-03-24-at-14-11-27.jpg",  # Gif 1
-]
-
-# Variável global para controle da alternância dos GIFs
-gif_index = 0
-
 # Lista de jogos
 jogos = [
     "Dragão e Tigre",
@@ -44,6 +36,9 @@ jogos = [
     "Tigre Sortudo e Tigre",
     "Cobra"
 ]
+
+# Caminho correto da imagem no seu sistema
+caminho_imagem = "C:/Users/03594901238/Desktop/bot/miku.jpeg"
 
 # Função para gerar um horário pagante próximo ao horário atual no fuso horário do Brasil (UTC-3)
 def gerar_horario_pagante_proximo():
@@ -56,12 +51,11 @@ def gerar_horario_pagante_proximo():
     proximo_horario = agora_brasil + timedelta(minutes=minutos_aleatorios)
     return proximo_horario.strftime("%H:%M")  # Formata para "hh:mm"
 
-# Função assíncrona para enviar mensagens e GIFs aleatórios
+# Função assíncrona para enviar mensagens e imagens locais
 async def enviar_mensagens():
-    global gif_index  # Usar a variável global para controlar o índice do GIF
     while True:
         try:
-            # Seleciona 2 ou 3 jogos aleatórios para a mensagem
+            # Seleciona jogos aleatórios
             jogos_selecionados = random.sample(jogos, random.randint(2, 3))
             jogos_texto = "🔥 *Jogos pagantes:* " + " | ".join(jogos_selecionados)
 
@@ -73,19 +67,17 @@ async def enviar_mensagens():
             # Junta a mensagem principal com o link
             mensagem_com_link = f"{mensagem}\n\n{link_casa_apostas}"
 
-            gif_url = gifs[gif_index]
-            
             # Envia a mensagem com o link da casa de apostas
             await bot.send_message(chat_id=CHAT_ID, text=mensagem_com_link, parse_mode="Markdown")
-            # Envia o gif
-            await bot.send_animation(chat_id=CHAT_ID, animation=gif_url)
-            print(f"✅ Mensagem e gif enviados: {mensagem_com_link}")
+            
+            # Envia a imagem localmente
+            with open(caminho_imagem, "rb") as foto:
+                await bot.send_photo(chat_id=CHAT_ID, photo=foto)
 
-            # Alterna o índice do gif para o próximo
-            gif_index = (gif_index + 1) % len(gifs)
+            print(f"✅ Mensagem e imagem enviadas: {mensagem_com_link}")
 
         except Exception as e:
-            print(f"❌ Erro ao enviar mensagem ou gif: {e}")
+            print(f"❌ Erro ao enviar mensagem ou imagem: {e}")
 
         # Tempo aleatório entre 5 e 15 minutos (300s - 900s)
         tempo_espera = random.randint(300, 900)
