@@ -31,7 +31,7 @@ mensagens = [
 
 # URLs dos GIFs do tigrinho
 gifs = [
-    "blob:https://web.whatsapp.com/1d6e391b-c859-460e-a9c5-97ea79a35495",  # Gif 1
+    "https://ibb.co/v6bYRpM0",  # Gif 1
 ]
 
 # Variável global para controle da alternância dos GIFs
