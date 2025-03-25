@@ -31,9 +31,9 @@ jogos = [
 
 # Lista de imagens para alternar
 imagens = [
-    "C:/Users/03594901238/Desktop/bot/miku.jpeg",
-    "C:/Users/03594901238/Desktop/bot/miku2.png",
-    "C:/Users/03594901238/Desktop/bot/miku3.webp",
+    "https://cdn.qwenlm.ai/output/74c24795-1c5e-4ef6-bd6a-1b5de9537b38/t2i/023ae085-6fcb-4444-877c-ab36ab1b20ef/0a55771d-91d4-4ed9-91fe-3857aadad94c.png?key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXNvdXJjZV91c2VyX2lkIjoiNzRjMjQ3OTUtMWM1ZS00ZWY2LWJkNmEtMWI1ZGU5NTM3YjM4IiwicmVzb3VyY2VfaWQiOiIwYTU1NzcxZC05MWQ0LTRlZDktOTFmZS0zODU3YWFkYWQ5NGMiLCJyZXNvdXJjZV9jaGF0X2lkIjpudWxsfQ.04OEY4-zXzCbfUI1OMLceO_VlIEIaEAtmZUr2C5Ag6A",
+    "https://cdn.qwenlm.ai/output/74c24795-1c5e-4ef6-bd6a-1b5de9537b38/t2i/f6f0bc49-6cb8-4523-98fb-d7fb9d4fb7b8/7f81a68e-89e1-41c8-9885-e6effb0a9ac6.png?key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXNvdXJjZV91c2VyX2lkIjoiNzRjMjQ3OTUtMWM1ZS00ZWY2LWJkNmEtMWI1ZGU5NTM3YjM4IiwicmVzb3VyY2VfaWQiOiI3ZjgxYTY4ZS04OWUxLTQxYzgtOTg4NS1lNmVmZmIwYTlhYzYiLCJyZXNvdXJjZV9jaGF0X2lkIjpudWxsfQ.kdGpsKMghlrLjuujeTFKpJpKK2KGM_ao3uNCLRkL2I4",
+    "https://cdn.qwenlm.ai/output/74c24795-1c5e-4ef6-bd6a-1b5de9537b38/t2i/02c074b0-180b-4516-a324-0c9039b30e32/e2eaeb04-6ab1-4f08-9835-9f1700c43c16.png?key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXNvdXJjZV91c2VyX2lkIjoiNzRjMjQ3OTUtMWM1ZS00ZWY2LWJkNmEtMWI1ZGU5NTM3YjM4IiwicmVzb3VyY2VfaWQiOiJlMmVhZWIwNC02YWIxLTRmMDgtOTgzNS05ZjE3MDBjNDNjMTYiLCJyZXNvdXJjZV9jaGF0X2lkIjpudWxsfQ.AGT_pjtM1c8vIfryAEMOK5yLQKjtoeEPy8W_-MkCdLI",
 ]
 
 # Função para gerar um horário pagante próximo ao horário atual no fuso horário do Brasil (UTC-3)
