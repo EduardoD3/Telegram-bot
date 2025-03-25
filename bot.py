@@ -61,12 +61,13 @@ async def enviar_mensagens():
             # Junta a mensagem principal com o link
             mensagem_com_link = f"{mensagem}\n\n{link_casa_apostas}"
 
-            # Criando um botão personalizado para o chat
+            # Criando um botão personalizado para o link da casa de apostas e o botão de chat
             teclado = InlineKeyboardMarkup([
+                [InlineKeyboardButton("🔥 MIKUPG777", url="https://www.mikupg777.com.br/register?id=50305252&currency=BRL&type=2")],
                 [InlineKeyboardButton("🔥 Acesse nosso Chat! 🔥", url=CHAT_LINK)]
             ])
 
-            # Envia a mensagem com botão
+            # Envia a mensagem com os botões
             await bot.send_message(chat_id=CHAT_ID, text=mensagem_com_link, parse_mode="Markdown", reply_markup=teclado)
             
             # Escolhe uma imagem aleatória para enviar
