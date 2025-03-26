@@ -56,14 +56,14 @@ async def enviar_mensagens():
             mensagem = random.choice(mensagens) + f"\n\n*📌 Próximo horário pagante:* {gerar_horario_pagante_proximo()}\n{jogos_texto}"
 
             # Adiciona o link da casa de apostas no final da mensagem
-            link_casa_apostas = "👉 BANCA MOLE: [APOSTE AGORA](https://www.mikupg777.com.br/register?id=50305252&currency=BRL&type=2)"
+            link_casa_apostas = "👉 BANCA MOLE: [APOSTE AGORA](https://www.fp-starwars.com/register?id=38771753&currency=BRL&type=2)"
 
             # Junta a mensagem principal com o link
             mensagem_com_link = f"{mensagem}\n\n{link_casa_apostas}"
 
             # Criando um botão personalizado para o link da casa de apostas e o botão de chat
             teclado = InlineKeyboardMarkup([
-                [InlineKeyboardButton("🔥 MIKUPG777", url="https://www.mikupg777.com.br/register?id=50305252&currency=BRL&type=2")],
+                [InlineKeyboardButton("🔥 MIKUPG777", url="https://www.fp-starwars.com/register?id=38771753&currency=BRL&type=2")],
                 [InlineKeyboardButton("🔥 Acesse nosso Chat! 🔥", url=CHAT_LINK)]
             ])
 
