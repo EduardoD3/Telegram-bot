@@ -63,7 +63,7 @@ async def enviar_mensagens():
 
             # Criando um botão personalizado para o link da casa de apostas e o botão de chat
             teclado = InlineKeyboardMarkup([
-                [InlineKeyboardButton("🔥 MIKUPG777", url="https://www.fp-starwars.com/register?id=38771753&currency=BRL&type=2")],
+                [InlineKeyboardButton("🔥 fp-starwars", url="https://www.fp-starwars.com/register?id=38771753&currency=BRL&type=2")],
                 [InlineKeyboardButton("🔥 Acesse nosso Chat! 🔥", url=CHAT_LINK)]
             ])
 
